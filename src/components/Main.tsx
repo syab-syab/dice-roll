@@ -11,6 +11,7 @@ const Wrapper = styled.main`
 const Select = styled.select`
   font-size: 3rem;
   margin-bottom: 3rem;
+  color: black;
 `
 
 const Main = () => {

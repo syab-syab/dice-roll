@@ -13,6 +13,7 @@ const RollButton = styled.button`
   font-size: 3rem;
   border: 0.1rem solid #4d869c;
   border-radius: 0.5rem;
+  color: black;
 `
 
 const Dice = () => {
