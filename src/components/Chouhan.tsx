@@ -6,6 +6,20 @@ import Four from './diceRoll/Four';
 import Five from './diceRoll/Five';
 import Six from './diceRoll/Six';
 import DiceMotion from './diceRoll/DiceMotion';
+import styled from 'styled-components';
+import demeChouhan from '../functions/demeChouhan';
+
+const RollButton = styled.button`
+  background: #4d869c;
+  font-size: 3rem;
+  border: 0.1rem solid #4d869c;
+  border-radius: 0.5rem;
+`
+
+const Deme = styled.p`
+  font-size: 3rem;
+  font-weight: bold;
+`
 
 const Chouhan = () => {
   const [ran1, setRan1] = useState<number>(1)
@@ -26,6 +40,9 @@ const Chouhan = () => {
     setRan2(tmp2+1)
   }
 
+  // 出目
+  const rolls: number[] = [ran1, ran2]
+
   const DiceArr = [
     <One />,
     <Two />,
@@ -37,21 +54,27 @@ const Chouhan = () => {
 
   return (
     <div>
-      <button onClick={createRandom}>乱数</button>
       <div>
         {
           !motion && DiceArr[ran1-1]
         }
         {
           !motion && DiceArr[ran2-1]
- 
         }
         {
           motion && <DiceMotion value='張った張った！' />
         }
-   
       </div>
-
+      <Deme>
+        {
+          !motion && demeChouhan(rolls)
+        }
+      </Deme>
+      <p>
+        {
+          !motion && <RollButton onClick={createRandom}>振る</RollButton>
+        }
+      </p>
     </div>
   )
 }

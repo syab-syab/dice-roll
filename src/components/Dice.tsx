@@ -6,6 +6,14 @@ import Four from './diceRoll/Four';
 import Five from './diceRoll/Five';
 import Six from './diceRoll/Six';
 import DiceMotion from './diceRoll/DiceMotion';
+import styled from 'styled-components';
+
+const RollButton = styled.button`
+  background: #4d869c;
+  font-size: 3rem;
+  border: 0.1rem solid #4d869c;
+  border-radius: 0.5rem;
+`
 
 const Dice = () => {
   const [ran, setRan] = useState<number>(1)
@@ -33,7 +41,6 @@ const Dice = () => {
 
   return (
     <div>
-      <button onClick={createRandom}>乱数</button>
       <div>
         {
           !motion && DiceArr[ran-1]
@@ -42,7 +49,11 @@ const Dice = () => {
           motion && <DiceMotion value='DICE ROLL!' />
         }
       </div>
-      
+      <p>
+        {
+          !motion && <RollButton onClick={createRandom}>振る</RollButton>
+        }
+      </p>
     </div>
   )
 }

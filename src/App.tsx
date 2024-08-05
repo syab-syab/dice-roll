@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <Header />
-      <h1>デザインはスマホ画面で進める</h1>
       <Main />
     </>
   );
